@@ -23,8 +23,3 @@ Each processing form (`Form1`, `FormRGB`, `FormGrayscale`, `FormHistogram`) work
 2. Restore/build the solution
 3. Run (F5)
 4. Use **File → Open** to load an image, then apply the desired transformation from the menu
-
-## Roadmap
-- [ ] Add more filters (blur, edge detection, sharpening)
-- [ ] Add before/after screenshots to this README
-- [ ] Optimize pixel loops (currently uses `GetPixel`/`SetPixel`, which is slow for large images — `LockBits` would be significantly faster)

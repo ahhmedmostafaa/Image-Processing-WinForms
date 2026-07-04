@@ -1,27 +1,33 @@
 # Image Processing Desktop App (C# WinForms)
 
-A Windows desktop application for performing fundamental image processing operations, built with C# and WinForms.
-
-## Overview
-This app allows users to load an image and apply various processing techniques through a graphical interface.
+A Windows desktop application implementing core image processing operations from scratch at the pixel level, built with C# and WinForms.
 
 ## Features
-- RGB channel manipulation
-- Grayscale conversion
-- Histogram generation and analysis
+
+- **RGB Channel Manipulation** — isolate and manipulate individual Red, Green, and Blue channels of a loaded image
+- **Grayscale Conversion** — pixel-by-pixel grayscale transformation
+- **Histogram Analysis** — computes and displays per-channel (R/G/B) pixel intensity distributions
+- **Histogram Equalization** — contrast enhancement by redistributing intensity values across the histogram
+- **Image Loading via OpenCV bindings** — supports JPEG, PNG, BMP, GIF, TIFF, WebP, and HEIC formats
+
+## How it works
+Each processing form (`Form1`, `FormRGB`, `FormGrayscale`, `FormHistogram`) works directly on the loaded bitmap's pixel data — reading and modifying RGB values pixel-by-pixel rather than relying on built-in image filters, to demonstrate the underlying image processing algorithms.
 
 ## Tech Stack
-- C#
-- .NET WinForms
+- C# / .NET WinForms
+- OpenCV (via native `cvlib` bindings) for image loading/resizing
+- System.Drawing (Bitmap manipulation)
 
 ## How to Run
 1. Open `ImageProcessing.sln` in Visual Studio
-2. Build and run the solution (F5)
+2. Restore/build the solution
+3. Run (F5)
+4. Use **File → Open** to load an image, then apply the desired transformation from the menu
 
-## Roadmap / Ideas for improvement
+## Roadmap
 - [ ] Add more filters (blur, edge detection, sharpening)
 - [ ] Add before/after screenshots to this README
-- [ ] Add unit tests for image processing functions
+- [ ] Optimize pixel loops (currently uses `GetPixel`/`SetPixel`, which is slow for large images — `LockBits` would be significantly faster)
 
 ---
-*This is a university project, further refined for demonstration purposes.*
+*Originally built for an "Image Processing" university course; refined for portfolio presentation.*
